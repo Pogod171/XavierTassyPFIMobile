@@ -17,10 +17,10 @@ const HomeScreen = ({ navigation, route }) => {
     };
     
     const handleRequestPermissionPhoto = async () => {
-        const { statusPhoto } = await requestPermissionPhoto();
+        requestPermissionPhoto();
     };
     const handleRequestPermissionAudio = async () => {
-        const { statusAudio } = await requestPermissionAudio();
+        requestPermissionAudio();
     };
 
     useEffect(() => {
@@ -42,7 +42,11 @@ const HomeScreen = ({ navigation, route }) => {
     };
 
     const handleLogout = () => {
-        setUserData({ username: '' });
+        setUserData({ 
+            username: '', 
+            photoUri: '',
+            audioUri: '',
+            audioID: '' });
         setUsername('');
         setPassword('');
     };
