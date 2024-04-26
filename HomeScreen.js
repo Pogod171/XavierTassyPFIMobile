@@ -1,31 +1,31 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Audio } from 'expo-av';
-import { Camera } from "expo-camera";
+// import { Audio } from 'expo-av';
+// import { Camera } from "expo-camera";
 import UserContext from './UserContext';
 
 const HomeScreen = ({ navigation, route }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { userData, setUserData } = useContext(UserContext);
-    const [permissionAudioResponse, requestPermissionAudio] = Audio.usePermissions();
-    const [permissionPhoto, requestPermissionPhoto] = Camera.useCameraPermissions();
+    // const [permissionAudioResponse, requestPermissionAudio] = Audio.usePermissions();
+    // const [permissionPhoto, requestPermissionPhoto] = Camera.useCameraPermissions();
     const users = {
         'LinaJ': 'password1',
         'XavierT': 'password2',
         'admin': 'admin',
     };
     
-    const handleRequestPermission = async () => {
-        const { statusPhoto} = await requestPermissionPhoto();
-        if (statusPhoto !== 'granted') {
-          Alert.alert('Permission de la caméra requise', 'Il faut votre permission afin d\'utiliser la caméra pour votre photo de profil.');
-        }
-        const { statusAudio } = await requestPermissionAudio();
-        if (statusAudio !== 'granted') {
-          Alert.alert('Permission du microhpone requise', 'Il faut votre permission afin d\'utiliser le microphone pour votre audio.');
-        }
-    };
+    // const handleRequestPermission = async () => {
+    //     const { statusPhoto} = await requestPermissionPhoto();
+    //     if (statusPhoto !== 'granted') {
+    //       Alert.alert('Permission de la caméra requise', 'Il faut votre permission afin d\'utiliser la caméra pour votre photo de profil.');
+    //     }
+    //     const { statusAudio } = await requestPermissionAudio();
+    //     if (statusAudio !== 'granted') {
+    //       Alert.alert('Permission du microhpone requise', 'Il faut votre permission afin d\'utiliser le microphone pour votre audio.');
+    //     }
+    // };
 
     useEffect(() => {
         setUserData(userData);
@@ -38,7 +38,7 @@ const HomeScreen = ({ navigation, route }) => {
                 ...prevUserData,
                 username: username,
             }));
-            handleRequestPermission();
+            // handleRequestPermission();
         } else {
             alert('Nom d\'utilisateur ou mot de passe incorrect');
         }
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     teamMember: {
         fontSize: 18,
         color: '#333',
+        marginBottom : 15
     },
     input: {
         width: '100%',
