@@ -48,7 +48,7 @@ export default function App() {
   if (!permission) {
     return (
       <View>
-        <Text>No permission</Text>
+        <Text>Aucune permission</Text>
       </View>
     );
   }
@@ -56,8 +56,8 @@ export default function App() {
   if (!permission.granted) {
     return (
       <View style={styles.container}>
-        <Text>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title="grant permission" />
+        <Text>Il faut votre permission afin d'accéder à la caméra</Text>
+        <Button onPress={requestPermission} title="Donner la permission" />
       </View>
     );
   }
