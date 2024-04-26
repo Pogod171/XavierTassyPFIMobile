@@ -18,15 +18,9 @@ const HomeScreen = ({ navigation, route }) => {
     
     const handleRequestPermissionPhoto = async () => {
         const { statusPhoto } = await requestPermissionPhoto();
-        if (statusPhoto !== 'granted') {
-          Alert.alert('Permission de la caméra requise', 'Il faut votre permission afin d\'utiliser la caméra pour votre photo de profil.');
-        }
     };
     const handleRequestPermissionAudio = async () => {
         const { statusAudio } = await requestPermissionAudio();
-        if (statusAudio !== 'granted') {
-          Alert.alert('Permission du microhpone requise', 'Il faut votre permission afin d\'utiliser le microphone pour votre audio.');
-        }
     };
 
     useEffect(() => {
